@@ -1,0 +1,11 @@
+<phpunit colors="true">
+ 	<testsuite name="XmlDzogchenTest">
+	 	<directory>../</directory>
+	</testsuite>
+ 	<filter>
+		<whitelist>
+			<directory suffix=".php">../</directory>
+		</whitelist>
+	</filter>
+
+</phpunit>
