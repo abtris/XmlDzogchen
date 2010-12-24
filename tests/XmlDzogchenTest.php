@@ -22,6 +22,9 @@ class XmlDzogchenTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        if (file_exists('actual.xml')) {
+            unlink('actual.xml');
+        }
         $this->xml = new XmlDzogchen('actual.xml');
     }
     /**
@@ -31,8 +34,20 @@ class XmlDzogchenTest extends PHPUnit_Framework_TestCase
     public function testCreateXml()
     {
         $this->xml->addNewValue('11','testovaci');
-        $this->assertTrue(true);
         $this->assertXmlFileEqualsXmlFile(
           'expected.xml', 'actual.xml');
     }
+    /**
+     * UpdateXML
+     * @return void
+     */
+    public function testUpdateXml()
+    {
+        $this->xml->addNewValue('11','testovaci');
+        $this->xml->updateValue('11', 'dalsi');
+        $this->assertXmlFileEqualsXmlFile(
+          'expected-update.xml', 'actual.xml');
+
+    }
+
 }

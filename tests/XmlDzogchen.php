@@ -29,10 +29,14 @@ class XmlDzogchen
         $this->doc->preserveWhiteSpace = false;
         $this->doc->formatOutput = true;
         if (file_exists($this->filename)) {
-            echo "Load file: ".$this->filename . PHP_EOL;
+            if ($this->debug) {
+                echo "Load file: ".$this->filename . PHP_EOL;
+            }
             $this->doc->load($this->filename);
         } else {
-            echo "Create new file" . PHP_EOL;
+            if ($this->debug) {
+                echo "Create new file" . PHP_EOL;
+            }
             $element = $this->doc->createElement('data', '');
             $this->doc->appendChild($element);
         }
