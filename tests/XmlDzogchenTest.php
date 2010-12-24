@@ -6,7 +6,7 @@
  * Time: 13:12
  * To change this template use File | Settings | File Templates.
  */
-require_once('XmlDzogchen.php');
+require_once(__DIR__ .'/../lib/XmlDzogchen.php');
 /**
  * XmlDzogchenTest
  */
@@ -35,7 +35,7 @@ class XmlDzogchenTest extends PHPUnit_Framework_TestCase
     {
         $this->xml->addNewValue('11','testovaci');
         $this->assertXmlFileEqualsXmlFile(
-          'expected.xml', 'actual.xml');
+          'tests/expected.xml', 'actual.xml');
     }
     /**
      * UpdateXML
@@ -46,7 +46,7 @@ class XmlDzogchenTest extends PHPUnit_Framework_TestCase
         $this->xml->addNewValue('11','testovaci');
         $this->xml->updateValue('11', 'dalsi');
         $this->assertXmlFileEqualsXmlFile(
-          'expected-update.xml', 'actual.xml');
+          'tests/expected-update.xml', 'actual.xml');
 
     }
 
